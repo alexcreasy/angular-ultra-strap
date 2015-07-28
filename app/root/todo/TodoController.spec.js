@@ -6,7 +6,6 @@ describe('Controller: TodoController', function () {
   beforeEach(module('root.todo'));
 
   var TodoCtrl,
-      MockTodo,
       scope;
 
   // Initialize the controller and a mock scope
@@ -21,6 +20,6 @@ describe('Controller: TodoController', function () {
 
   it('should report correctly when it has no todos', function() {
     expect(TodoCtrl.hasTodos()).toBe(false);
-  })
+  });
 
 });

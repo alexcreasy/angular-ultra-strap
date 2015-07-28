@@ -3,6 +3,7 @@
   "browser": true,
   "curly": true,
   "eqeqeq": true,
+  "jasmine": true,
   "esnext": true,
   "latedef": false,
   "noarg": true,
@@ -11,6 +12,7 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "inject": false
   }
 }

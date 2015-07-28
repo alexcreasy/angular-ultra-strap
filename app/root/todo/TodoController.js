@@ -9,20 +9,17 @@
     var vm = this;
 
     vm.todoList = [];
-    vm.hasTodos = hasTodos;
-    vm.addTodo = addTodo;
-    vm.clearTodos = clearTodos;
 
-    function hasTodos() {
+    vm.hasTodos = function () {
       return vm.todoList.length > 0;
-    }
+    };
 
-    function addTodo(todo) {
+    vm.addTodo = function (todo) {
       vm.todoList.push(new Todo(todo.label));
-    }
+    };
 
-    function clearTodos() {
+    vm.clearTodos = function () {
       vm.todoList = [];
-    }
+    };
   }
 })();

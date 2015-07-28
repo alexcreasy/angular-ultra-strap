@@ -5,22 +5,11 @@
     .module('root.todo')
     .factory('Todo', todoFactory);
 
-  function todoFactory() {
-    return Todo;
-  }
-
   function Todo(label) {
     var self = this;
 
-    var thisLabel,
-        done;
-
-    if (angular.isUndefined(label)) {
-      throw new Error('Undefined param label');
-    }
-
-    thisLabel = label;
-    done = false;
+    var thisLabel = label;
+    var done = false;
 
     self.getLabel = function () {
       return thisLabel;
@@ -31,4 +20,7 @@
     };
   }
 
+  function todoFactory() {
+    return Todo;
+  }
 })();

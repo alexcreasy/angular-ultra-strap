@@ -1,5 +1,5 @@
 {
-  "name": "testyo",
+  "name": "root",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",

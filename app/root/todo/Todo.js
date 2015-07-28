@@ -18,6 +18,10 @@
     self.isDone = function () {
       return done;
     };
+
+    self.toggleDone = function () {
+      done = !done;
+    };
   }
 
   function todoFactory() {

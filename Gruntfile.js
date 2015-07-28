@@ -70,8 +70,8 @@ module.exports = function (grunt) {
         ]
       },
       includeSource: {
-        files: ['<%= project.app %>/index.html'],
-        tasks: ['includeSource:dist']
+        files: ['<%= project.app %>/**/*.js'],
+        tasks: ['includeSource']
       }
     },
 
@@ -222,19 +222,11 @@ module.exports = function (grunt) {
         baseUrl: '/root',
         ordering: 'top-down'
       },
-      // server: {
-      //   files: {
-      //     '.tmp/index.html': '<%= project.app %>/index.html'
-      //   }
-      // },
-      // dist: {
-      //   files: {
-      //     '<%= project.dist %>/index.html': '<%= project.app %>/index.html'
-      //   }
-      // }
-      dist: {
+      app: {
         files: {
-          '<%= project.app %>/index.html': '<%= project.app %>/index.html'
+          '<%= project.app %>/index.html': '<%= project.app %>/index.html',
+          '<%= project.app %>/styles/main.scss':
+              '<%= project.app %>/styles/main.scss'
         }
       }
     },
@@ -479,7 +471,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'includeSource:dist',
+      'includeSource',
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
@@ -505,7 +497,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'wiredep',
-    'includeSource:dist',
+    'includeSource',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

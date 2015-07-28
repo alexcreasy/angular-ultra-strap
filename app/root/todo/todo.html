@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h1>Todo List</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group" ng-show="vm.hasTodos()">
+        <li class="list-group-item" ng-repeat="todo in vm.todoList">
+          <span ng-class="{ 'todo-done': todo.isDone() }"> {{ todo.getLabel() }}
+          <button type="button" class="close" aria-label="Close" ng-click="todo.toggleDone()">
+            <span class="glyphicon glyphicon-ok"></span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-12">
+      <form class="form-inline">
+        <div class="form-group">
+          <label for="todo">Todo</label>
+          <input type="text" class="form-control" id="todo" placeholder="Wash the car" ng-model="task.label">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-click="vm.addTodo(task)">Add Task</button>
+        <button type="button" class="btn btn-error" ng-click="vm.clearTodos()">Clear</button>
+      </form>
+    </div>
+  </div>
+</div>

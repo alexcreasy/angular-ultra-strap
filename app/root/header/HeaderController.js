@@ -5,10 +5,8 @@
     .module('root.header')
     .controller('HeaderController', HeaderController);
 
-  function HeaderController($log) {
+  function HeaderController() {
     var vm = this;
-
-    $log.debug('HeaderController');
 
     vm.topLevelStates = [
       {

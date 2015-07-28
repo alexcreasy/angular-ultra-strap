@@ -5,7 +5,8 @@
     .module('root', [
       'ui.router',
       'root.header',
-      'root.home'
+      'root.home',
+      'root.todo'
     ])
     .config(config)
     .run(run);

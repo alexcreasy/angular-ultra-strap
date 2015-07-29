@@ -5,21 +5,47 @@ describe('Controller: TodoController', function () {
   // load the controller's module
   beforeEach(module('root.todo'));
 
-  var TodoCtrl,
-      scope;
+  var ctrl,
+      scope,
+      mockUserInput;
+
+  mockUserInput = [
+    {
+      label: 'Wash the car'
+    },
+    {
+      label: 'Clean the dishes'
+    },
+    {
+      label: 'Deploy orbital weapons platform'
+    }
+  ];
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    TodoCtrl = $controller('TodoController', {
-      $scope: scope,
+    ctrl = $controller('TodoController', {
+      $scope: scope
       // place here mocked dependencies
-      Todo: {}
     });
   }));
 
-  it('should report correctly when it has no todos', function() {
-    expect(TodoCtrl.hasTodos()).toBe(false);
+  describe('method hasTodos', function () {
+    it('should return false when the todo list is empty', function () {
+      expect(ctrl.hasTodos()).toBe(false);
+    });
+
+    it('should return true when the todo list contains todos', function () {
+      ctrl.todoList.push(mockUserInput[0]);
+      expect(ctrl.hasTodos()).toBe(true);
+    });
   });
+
+  describe('method addTodo', function() {
+    it('should add a todo to the todo list', function () {
+      ctrl.addTodo(mockUserInput[0]);
+      expect(ctrl.todoList.length).toEqual(1);
+    })
+  })
 
 });

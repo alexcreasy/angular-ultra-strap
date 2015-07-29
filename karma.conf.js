@@ -33,7 +33,7 @@ module.exports = function(config) {
       "app/root/**/module.js",
       "app/root/**/*.js",
       "!app/root/**/module.js",
-      "test/mock/**/*.js",
+      "test/**/*.js",
     ],
 
     // list of files / patterns to exclude

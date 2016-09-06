@@ -16,7 +16,8 @@ module.exports = function (grunt) {
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn',
+    bower: 'grunt-bower-task'
   });
 
   // Configurable paths for the application
@@ -122,6 +123,14 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: '<%= project.dist %>'
+        }
+      }
+    },
+
+    bower: {
+      install: {
+        options: {
+          targetDir: '<%= project.lib %>'
         }
       }
     },
@@ -514,6 +523,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'bower:install',
     'newer:jshint',
     'test',
     'build'

@@ -14,8 +14,6 @@
   function config($locationProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(false);
     $urlRouterProvider.when('', '/');
-
-    throw Error('Bwaahahahaha');
   }
 
   function run($log, $rootScope) {

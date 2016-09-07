@@ -22,7 +22,7 @@ module.exports = function (grunt) {
 
   // Configurable paths for the application
   var appConfig = {
-    app: require('./bower.json').appPath || 'app',
+    app: require('./bower.json').appPath || 'src',
     lib: 'bower_components',
     rootModule: 'root',
     tmp: '.tmp',
@@ -95,8 +95,8 @@ module.exports = function (grunt) {
                 connect.static('./bower_components')
               ),
               connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
+                '/src/styles',
+                connect.static('./src/styles')
               ),
               connect.static(appConfig.app)
             ];
@@ -227,7 +227,7 @@ module.exports = function (grunt) {
     // Wires our own scripts and styles into index.html
     includeSource: {
       options: {
-        basePath: 'app',
+        basePath: '<%= project.app %>',
         baseUrl: '/root',
         ordering: 'top-down'
       },

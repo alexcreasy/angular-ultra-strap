@@ -3,7 +3,7 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
 // endbower
 
-// include: "type": "scss", "baseUrl": ".", "basePath": "app/styles/", "files": ["*.scss", "!main.scss"]
+// include: "type": "scss", "baseUrl": ".", "basePath": "src/styles/", "files": ["*.scss", "!main.scss"]
 @import "secondary.scss";
 // /include
 

@@ -2,18 +2,18 @@
   'use strict';
 
   angular
-    .module('root')
+    .module('app-ae627c')
       .config(routes);
 
   function routes($stateProvider) {
-    $stateProvider.state('root', {
+    $stateProvider.state('app-ae627c', {
       abstract: true,
       views: {
         '': {
-          templateUrl: 'root/layout.html'
+          templateUrl: 'app-ae627c/layout.html'
         },
-        'header@root': {
-          templateUrl: 'root/header/header.html',
+        'header@app-ae627c': {
+          templateUrl: 'app-ae627c/header/header.html',
           controller: 'HeaderController',
           controllerAs: 'vm'
         }

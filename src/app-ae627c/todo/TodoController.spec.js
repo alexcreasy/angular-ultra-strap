@@ -3,7 +3,7 @@
 describe('Controller: TodoController', function () {
 
   // load the controller's module
-  beforeEach(module('root.todo'));
+  beforeEach(module('app-ae627c.todo'));
 
   var ctrl,
       scope,

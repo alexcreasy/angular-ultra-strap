@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('root.todo')
+    .module('app-ae627c.todo')
     .controller('TodoController', TodoController);
 
   function TodoController(Todo) {

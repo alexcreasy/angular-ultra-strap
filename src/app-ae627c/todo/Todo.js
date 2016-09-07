@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('root.todo')
+    .module('app-ae627c.todo')
     .factory('Todo', todoFactory);
 
   function Todo(label) {

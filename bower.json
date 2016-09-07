@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "app-ae627c",
   "version": "1.0.0",
   "dependencies": {
     "angular": "1.5.8",
@@ -12,7 +12,7 @@
     "angular-mocks": "1.5.8"
   },
   "appPath": "src",
-  "moduleName": "root",
+  "moduleName": "app-ae627c",
   "overrides": {
     "bootstrap": {
       "main": [

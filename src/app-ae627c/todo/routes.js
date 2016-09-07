@@ -2,15 +2,15 @@
   'use strict';
 
   angular
-    .module('root')
+    .module('app-ae627c')
       .config(routes);
 
   function routes($stateProvider) {
-    $stateProvider.state('root.todo', {
+    $stateProvider.state('app-ae627c.todo', {
       url: '/todo',
       views: {
-        'content@root': {
-          templateUrl: 'root/todo/todo.html',
+        'content@app-ae627c': {
+          templateUrl: 'app-ae627c/todo/todo.html',
           controller: 'TodoController',
           controllerAs: 'vm'
         }

@@ -24,7 +24,7 @@ module.exports = function (grunt) {
   var appConfig = {
     app: require('./bower.json').appPath || 'src',
     lib: 'bower_components',
-    rootModule: 'root',
+    rootModule: 'app-ae627c',
     tmp: '.tmp',
     dist: 'dist'
   };
@@ -230,7 +230,7 @@ module.exports = function (grunt) {
     includeSource: {
       options: {
         basePath: '<%= project.app %>',
-        baseUrl: '/root',
+        baseUrl: '/' + appConfig.rootModule,
         ordering: 'top-down'
       },
       app: {

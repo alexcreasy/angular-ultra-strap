@@ -412,6 +412,31 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      server: {
+        files: [
+            {
+              expand: true,
+              dot: true,
+              cwd: '<%= project.lib %>/font-awesome/fonts/',
+              dest: '<%= project.tmp %>/fonts/',
+              src: [ '**' ]
+            },
+            {
+              expand: true,
+              dot: true,
+              cwd: '<%= project.lib %>/patternfly/dist/fonts/',
+              dest: '<%= project.tmp %>/fonts/',
+              src: [ '**' ]
+            },
+            {
+              expand: true,
+              dot: true,
+              cwd: '<%= project.lib %>/patternfly/components/bootstrap/fonts/',
+              dest: '<%= project.tmp %>/fonts/',
+              src: [ '**' ]
+            }
+          ]
+      },
       dist: {
         files: [{
           expand: true,
@@ -428,11 +453,24 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= project.dist %>/images',
           src: ['generated/*']
-        }, {
+        },{
           expand: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
+          cwd: '<%= project.lib %>/bootstrap/dist',
+          src: 'fonts/*',
           dest: '<%= project.dist %>'
+        },{
+          expand: true,
+          dot: true,
+          cwd: '<%= project.lib %>/font-awesome/fonts/',
+          dest: '<%= project.dist %>/fonts/',
+          src: [ '**' ]
+        },
+        {
+          expand: true,
+          dot: true,
+          cwd: '<%= project.lib %>/patternfly/dist/fonts/',
+          dest: '<%= project.dist %>/fonts/',
+          src: [ '**' ]
         }]
       },
       styles: {
@@ -478,6 +516,7 @@ module.exports = function (grunt) {
       'includeSource',
       'wiredep',
       'concurrent:server',
+      'copy:server',
       'autoprefixer:server',
       'connect:livereload',
       'watch'

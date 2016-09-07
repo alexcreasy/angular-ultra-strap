@@ -1,25 +1,16 @@
 {
   "name": "app-ae627c",
   "version": "1.0.0",
+  "appPath": "src",
+  "moduleName": "app-ae627c",
   "dependencies": {
     "angular": "1.5.8",
-    "bootstrap-sass-official": "3.2.0",
     "angular-aria": "1.5.8",
     "angular-resource": "1.5.8",
-    "angular-ui-router": "0.3.1"
+    "angular-ui-router": "0.3.1",
+    "angular-patternfly": "3.9.0"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"
-  },
-  "appPath": "src",
-  "moduleName": "app-ae627c",
-  "overrides": {
-    "bootstrap": {
-      "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
-      ]
-    }
   }
 }

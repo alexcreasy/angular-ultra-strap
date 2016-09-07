@@ -22,8 +22,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/affix.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/alert.js',
       'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/button.js',

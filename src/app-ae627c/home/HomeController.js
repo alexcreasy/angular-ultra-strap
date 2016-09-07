@@ -2,12 +2,12 @@
   'use strict';
 
   angular
-    .module('root.home')
+    .module('app-ae627c.home')
     .controller('HomeController', HomeController);
 
   function HomeController() {
     var vm = this;
 
-    vm.title = "ROOT";
+    vm.title = "app-ae627c";
   }
 })();

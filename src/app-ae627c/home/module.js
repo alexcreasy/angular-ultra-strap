@@ -2,7 +2,8 @@
   'use strict';
 
   angular
-    .module('root.todo', [
+    .module('app-ae627c.home', [
       'ui.router',
-    ]);  
+    ]);
+
 })();

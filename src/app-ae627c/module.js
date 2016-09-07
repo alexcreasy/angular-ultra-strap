@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('root', [
+    .module('app-ae627c', [
       'ui.router',
-      'root.header',
-      'root.home',
-      'root.todo'
+      'app-ae627c.header',
+      'app-ae627c.home',
+      'app-ae627c.todo'
     ])
     .config(config)
     .run(run);

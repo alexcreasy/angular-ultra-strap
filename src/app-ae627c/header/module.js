@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('root.home', [
+    .module('app-ae627c.header', [
       'ui.router',
     ]);
 

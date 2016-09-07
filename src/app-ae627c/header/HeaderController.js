@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('root.header')
+    .module('app-ae627c.header')
     .controller('HeaderController', HeaderController);
 
   function HeaderController() {
@@ -11,11 +11,11 @@
     vm.topLevelStates = [
       {
         name: 'Home',
-        sref: 'root.home'
+        sref: 'app-ae627c.home'
       },
       {
         name: 'Todo List',
-        sref: 'root.todo'
+        sref: 'app-ae627c.todo'
       }
     ];
   }

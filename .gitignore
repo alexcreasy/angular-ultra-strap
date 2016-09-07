@@ -61,3 +61,10 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+/seed-project/node_modules
+/seed-project/node
+/seed-project/dist
+/seed-project/.tmp
+/seed-project/.sass-cache
+/seed-project/bower_components

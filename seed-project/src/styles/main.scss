@@ -17,3 +17,10 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 .todo-done {
   text-decoration: line-through;
 }
+
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}

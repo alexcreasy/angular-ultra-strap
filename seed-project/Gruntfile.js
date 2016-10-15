@@ -50,6 +50,13 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         }
       },
+      html: {
+        files: ['<%= project.app %>/**/*.html'],
+        tasks: ['htmlhint'],
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        }
+      },
       jsTest: {
         files: ['<%= project.app %>/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
@@ -154,6 +161,17 @@ module.exports = function (grunt) {
           jshintrc: 'test/.jshintrc'
         },
         src: ['test/spec/{,*/}*.js']
+      }
+    },
+
+    htmlhint: {
+      html: {
+        src: [
+          '<%= project.app %>/**/*.html'
+        ],
+        options: {
+          htmlhintrc: '.htmlhintrc'
+        }
       }
     },
 
@@ -484,6 +502,11 @@ module.exports = function (grunt) {
     ]);
   });
 
+  grunt.registerTask('codestyle', [
+    'newer:jshint',
+    'newer:htmlhint'
+  ]);
+
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
@@ -513,7 +536,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'bower:install',
-    'newer:jshint',
+    'codestyle',
     'test',
     'build'
   ]);

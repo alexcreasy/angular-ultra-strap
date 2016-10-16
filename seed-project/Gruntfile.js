@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
     bower: 'grunt-bower-task',
+    protractor: 'grunt-protractor-runner'
   });
 
   // Configurable paths for the application
@@ -520,7 +521,28 @@ module.exports = function (grunt) {
         configFile: 'karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+    protractor: {
+      options: {
+        configFile: "protractor.conf.js",
+        noColor: false
+      },
+      e2e: {
+        options: {
+          keepAlive: false
+        }
+      }
+    },
+
+    shell: {
+      webdriverUpdate: {
+        options: {
+          stdout: true
+        },
+        command: require('path').resolve(__dirname, 'node_modules', 'protractor', 'bin', 'webdriver-manager') + ' update'
+      }
+  }
   });
 
 
@@ -546,13 +568,31 @@ module.exports = function (grunt) {
     'newer:htmlhint'
   ]);
 
-  grunt.registerTask('test', [
+  grunt.registerTask('test-setup', [
     'clean:server',
+    'includeSource',
     'wiredep',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+  ]);
+
+  grunt.registerTask('test', [
+    'test-setup',
+    'karma',
+  ]);
+
+  grunt.registerTask('e2e-test', [
+    'test-setup',
+    'shell:webdriverUpdate',
+    'protractor'
+  ]);
+
+  grunt.registerTask('ci-test', [
+    'test-setup',
+    'shell:webdriverUpdate',
+    'karma',
+    'protractor'
   ]);
 
   grunt.registerTask('build', [
@@ -577,6 +617,13 @@ module.exports = function (grunt) {
     'bower:install',
     'codestyle',
     'test',
+    'build'
+  ]);
+
+  grunt.registerTask('ci-build', [
+    'bower:install',
+    'codestyle',
+    'ci-test',
     'build'
   ]);
 };

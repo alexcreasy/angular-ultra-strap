@@ -43,7 +43,6 @@ module.exports = function(config) {
       // endbower
       "src/app-ae627c/**/module.js",
       "src/app-ae627c/**/*.js",
-      "test/**/*.js"
     ],
 
     // list of files / patterns to exclude

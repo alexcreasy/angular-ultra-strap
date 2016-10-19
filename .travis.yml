@@ -5,5 +5,7 @@ before_install:
   - cd seed-project
 before_script:
   - npm install grunt-cli -g
+  - 'gem install sass --version "=3.4.21"'
+  - 'gem install compass --version "=1.0.3"'
 script:
   - grunt ci-build

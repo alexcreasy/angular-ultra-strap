@@ -5,4 +5,5 @@ before_install:
   - cd seed-project
 before_script:
   - npm install grunt-cli -g
-  - grunt build
+script:
+  - grunt ci-build

@@ -1,7 +1,8 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "4.6.1"
 before_install:
   - cd seed-project
 before_script:
   - npm install grunt-cli -g
+  - grunt build

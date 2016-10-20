@@ -497,6 +497,14 @@ module.exports = function (grunt) {
       }
     },
 
+    protractor_webdriver: {
+      e2e: {
+        options: {
+          path: './node_modules/protractor/bin/webdriver-manager',
+        },
+      },
+    },
+
     shell: {
       webdriverUpdate: {
         options: {
@@ -544,14 +552,14 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('e2e-test', [
+    // 'shell:webdriverUpdate',
+    // 'protractor_webdriver:e2e',
     'test-setup',
-    'shell:webdriverUpdate',
     'protractor'
   ]);
 
   grunt.registerTask('ci-test', [
     'test-setup',
-    'shell:webdriverUpdate',
     'karma',
     'protractor'
   ]);

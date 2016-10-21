@@ -480,39 +480,43 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
+        configFile: './karma.conf.js',
         singleRun: true
       }
     },
 
     protractor: {
       options: {
-        configFile: "protractor.conf.js",
         noColor: false
       },
       e2e: {
         options: {
+          configFile: "./test/protractor.conf.js",
+          keepAlive: false
+        },
+        ci: {
+          configFile: "./test/protractor.ci.conf.js",
           keepAlive: false
         }
       }
     },
 
-    protractor_webdriver: {
-      e2e: {
-        options: {
-          path: './node_modules/protractor/bin/webdriver-manager',
-        },
-      },
-    },
-
-    shell: {
-      webdriverUpdate: {
-        options: {
-          stdout: true
-        },
-        command: require('path').resolve(__dirname, 'node_modules', 'protractor', 'bin', 'webdriver-manager') + ' update'
-      }
-  }
+    // protractor_webdriver: {
+    //   e2e: {
+    //     options: {
+    //       path: './node_modules/protractor/bin/webdriver-manager',
+    //     },
+    //   },
+    // },
+    //
+    // shell: {
+    //   webdriverUpdate: {
+    //     options: {
+    //       stdout: true
+    //     },
+    //     command: require('path').resolve(__dirname, 'node_modules', 'protractor', 'bin', 'webdriver-manager') + ' update'
+    //   }
+    // }
   });
 
 
@@ -552,16 +556,14 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('e2e-test', [
-    // 'shell:webdriverUpdate',
-    // 'protractor_webdriver:e2e',
     'test-setup',
-    'protractor'
+    'protractor:e2e'
   ]);
 
   grunt.registerTask('ci-test', [
     'test-setup',
     'karma',
-    'protractor'
+    'protractor:ci'
   ]);
 
   grunt.registerTask('build', [

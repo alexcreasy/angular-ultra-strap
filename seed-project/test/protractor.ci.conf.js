@@ -1,8 +1,7 @@
 exports.config = {
   framework: 'jasmine',
-  //seleniumAddress: null,
   seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
-  specs: ['test/e2e/**/*.js'],
+  specs: ['//e2e/**/*.js'],
   capabilities: {
     'browserName': 'firefox'
   },

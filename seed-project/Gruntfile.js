@@ -494,7 +494,9 @@ module.exports = function (grunt) {
           configFile: "./test/protractor.conf.js",
           keepAlive: false
         },
-        ci: {
+      },
+      ci: {
+        options: {
           configFile: "./test/protractor.ci.conf.js",
           keepAlive: false
         }

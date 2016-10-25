@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "4.6.1"
+before_install:
+  - cd seed-project
+before_script:
+  - npm install grunt-cli -g
+  - 'gem install sass --version "=3.4.21"'
+  - 'gem install compass --version "=1.0.3"'
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - 'node_modules/protractor/bin/webdriver-manager update --standalone --firefox'
+  - 'node_modules/protractor/bin/webdriver-manager start 2>&1 &'
+script:
+  - grunt ci-build

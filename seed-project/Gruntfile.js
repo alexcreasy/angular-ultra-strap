@@ -18,6 +18,7 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn',
     bower: 'grunt-bower-task',
+    protractor: 'grunt-protractor-runner'
   });
 
   // Configurable paths for the application
@@ -517,10 +518,45 @@ module.exports = function (grunt) {
     // Test settings
     karma: {
       unit: {
-        configFile: 'karma.conf.js',
+        configFile: './karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+    protractor: {
+      options: {
+        noColor: false
+      },
+      e2e: {
+        options: {
+          configFile: "./test/protractor.conf.js",
+          keepAlive: false
+        },
+      },
+      ci: {
+        options: {
+          configFile: "./test/protractor.ci.conf.js",
+          keepAlive: false
+        }
+      }
+    },
+
+    // protractor_webdriver: {
+    //   e2e: {
+    //     options: {
+    //       path: './node_modules/protractor/bin/webdriver-manager',
+    //     },
+    //   },
+    // },
+    //
+    // shell: {
+    //   webdriverUpdate: {
+    //     options: {
+    //       stdout: true
+    //     },
+    //     command: require('path').resolve(__dirname, 'node_modules', 'protractor', 'bin', 'webdriver-manager') + ' update'
+    //   }
+    // }
   });
 
 
@@ -546,13 +582,29 @@ module.exports = function (grunt) {
     'newer:htmlhint'
   ]);
 
-  grunt.registerTask('test', [
+  grunt.registerTask('test-setup', [
     'clean:server',
+    'includeSource',
     'wiredep',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
-    'karma'
+  ]);
+
+  grunt.registerTask('test', [
+    'test-setup',
+    'karma',
+  ]);
+
+  grunt.registerTask('e2e-test', [
+    'test-setup',
+    'protractor:e2e'
+  ]);
+
+  grunt.registerTask('ci-test', [
+    'test-setup',
+    'karma',
+    'protractor:ci'
   ]);
 
   grunt.registerTask('build', [
@@ -577,6 +629,13 @@ module.exports = function (grunt) {
     'bower:install',
     'codestyle',
     'test',
+    'build'
+  ]);
+
+  grunt.registerTask('ci-build', [
+    'bower:install',
+    'codestyle',
+    'ci-test',
     'build'
   ]);
 };

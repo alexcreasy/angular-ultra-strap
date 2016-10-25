@@ -51,9 +51,8 @@ module.exports = function(config) {
       'bower_components/angular-patternfly/dist/angular-patternfly.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
-      "src/app-ae627c/**/module.js",
+      "src/app-ae627c/**/*.module.js",
       "src/app-ae627c/**/*.js",
-      "test/**/*.js"
     ],
 
     // list of files / patterns to exclude
